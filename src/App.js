@@ -1,10 +1,19 @@
 import "./styles.css";
+import Counter from "./components/Count";
+import { useDispatch } from "react-redux";
 
 export default function App() {
+  const dispatch = useDispatch();
+
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <button onClick={(e) => dispatch({ type: "INCREMENT" })}>
+        Increment Count
+      </button>
+      <Counter />
+      <button onClick={(e) => dispatch({ type: "DECREMENT" })}>
+        Decrement Count
+      </button>
     </div>
   );
 }
